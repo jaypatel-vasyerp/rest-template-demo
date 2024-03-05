@@ -59,7 +59,7 @@ public class RestTemplateController {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         HttpEntity<String> entity = new HttpEntity<>(httpHeaders);
-        return restTemplate.exchange(API_URL, HttpMethod.DELETE, entity, String.class);
+        return restTemplate.exchange(API_URL+ "/id/" +id, HttpMethod.DELETE, entity, String.class);
     }
 
     @PutMapping("id/{id}")
@@ -67,7 +67,7 @@ public class RestTemplateController {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         HttpEntity<Employee> entity = new HttpEntity<>(employee, httpHeaders);
-        return restTemplate.exchange(API_URL, HttpMethod.PUT, entity, Employee.class);
+        return restTemplate.exchange(API_URL + "/id/" + id, HttpMethod.PUT, entity, Employee.class);
     }
 
 }
